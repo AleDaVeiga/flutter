@@ -23,8 +23,28 @@ class ListApp extends StatelessWidget {
           backgroundColor: Colors.deepPurple,
           centerTitle: true,
         ),
-        body: Center(
-          child: Text('Olá'),
+        body: ListView.separated(
+          separatorBuilder: (context, index) =>
+              Divider(color: Colors.deepPurple),
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Colors.deepPurple,
+                child: IconTheme(
+                  child: Icon(Icons.add_photo_alternate),
+                  data: IconThemeData(color: Colors.white),
+                ),
+              ),
+              onTap: () {},
+              title: Text(
+                items[index],
+                style: TextStyle(color: Colors.deepPurple),
+              ),
+              subtitle: Text("Sub ${index + 1} teste",
+                  style: TextStyle(color: Colors.deepPurple)),
+            );
+          },
         ),
       ),
     );
